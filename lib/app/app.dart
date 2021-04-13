@@ -11,7 +11,7 @@ class App extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: PageHome(title: 'Flutter Demo Home Page'),
+      home: PageHome(title: 'Covid-19'),
     );
   }
 }
