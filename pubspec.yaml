@@ -75,9 +75,9 @@ flutter:
   fonts:
     - family: Ubuntu
       fonts:
-        - asset: app/fonts/Ubuntu/Ubuntu-Regular.ttf
-        - asset: app/fonts/Ubuntu/Ubuntu-Medium.ttf
-        - asset: app/fonts/Ubuntu/Ubuntu-Bold.ttf
+        - asset: lib/app/assets/fonts/Ubuntu/Ubuntu-Regular.ttf
+        - asset: lib/app/assets/fonts/Ubuntu/Ubuntu-Medium.ttf
+        - asset: lib/app/assets/fonts/Ubuntu/Ubuntu-Bold.ttf
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
   #   - family: Trajan Pro
