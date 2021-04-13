@@ -45,9 +45,21 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
-  # assets:
-  #   - images/a_dot_burr.jpeg
-  #   - images/a_dot_ham.jpeg
+  assets:
+    - lib/app/assets/img/africa.png
+    - lib/app/assets/img/africa2x.png
+    - lib/app/assets/img/asia.png
+    - lib/app/assets/img/asia2x.png
+    - lib/app/assets/img/europe.png
+    - lib/app/assets/img/europe2x.png
+    - lib/app/assets/img/logo.png
+    - lib/app/assets/img/logo2x.png
+    - lib/app/assets/img/northAmerica.png
+    - lib/app/assets/img/northAmerica2x.png
+    - lib/app/assets/img/oceania.png
+    - lib/app/assets/img/oceania2x.png
+    - lib/app/assets/img/southAmerica.png
+    - lib/app/assets/img/southAmerica2x.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
@@ -60,10 +72,12 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
+  fonts:
+    - family: Ubuntu
+      fonts:
+        - asset: app/fonts/Ubuntu/Ubuntu-Regular.ttf
+        - asset: app/fonts/Ubuntu/Ubuntu-Medium.ttf
+        - asset: app/fonts/Ubuntu/Ubuntu-Bold.ttf
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
   #   - family: Trajan Pro
