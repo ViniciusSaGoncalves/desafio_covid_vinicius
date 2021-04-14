@@ -48,14 +48,14 @@ class _PageHomeState extends State<PageHome> {
       body: FutureBuilder(
         future: getHttp(),
         builder: (_, snapshot) {
-          return ListView(
-            children: continents.map((ContinentDataModel e) {
-              print(e.continent);
+          return ListView.builder(
+            itemCount: continents.length,
+            itemBuilder: (_, index) {
               return ContinentCardItemList(
-                continent: e.continent,
-                countries: e.countries.length,
+                continent: continents[index].continent,
+                countries: continents[index].countries.length,
               );
-            }).toList(),
+            },
           );
         },
       ),

@@ -14,7 +14,9 @@ class ContinentCardItemList extends StatelessWidget {
     return Card(
       margin: EdgeInsets.only(left: 15, right: 15, top: 10),
       child: InkWell(
-        onTap: () => PageContinentOverview(continent: continent),
+        onTap: () => Navigator.of(context).push(MaterialPageRoute(
+            builder: (BuildContext context) =>
+                PageContinentOverview(continent: continent))),
         child: ListTile(
           leading: Image(image: AssetImage(ImgPath.getPathImg(continent))),
           title: Text(
