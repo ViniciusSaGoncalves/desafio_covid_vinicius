@@ -1,7 +1,8 @@
+import 'package:desafio_covid_vinicius/app/models/ContinentDataModel.dart';
 import 'package:flutter/material.dart';
 
 class PageContinentOverview extends StatelessWidget {
-  final String continent;
+  final ContinentDataModel continent;
   const PageContinentOverview({this.continent, Key key}) : super(key: key);
 
   @override
@@ -19,7 +20,7 @@ class PageContinentOverview extends StatelessWidget {
             onPressed: () => Navigator.of(context).pop(),
           ),
           title: Text(
-            continent,
+            continent.continent,
             style: TextStyle(
               color: Color(0xFF1E2243),
               fontWeight: FontWeight.bold,
@@ -74,7 +75,7 @@ class PageContinentOverview extends StatelessWidget {
                         Padding(
                           padding: const EdgeInsets.only(top: 5),
                           child: Text(
-                            '845681354',
+                            continent.cases.toString(),
                             style: TextStyle(
                               color: Color(0XFF1E2243),
                               fontSize: 16,
@@ -99,7 +100,7 @@ class PageContinentOverview extends StatelessWidget {
                                   Padding(
                                     padding: const EdgeInsets.only(top: 8.0),
                                     child: Text(
-                                      '27%',
+                                      '${(continent.active * 100 / continent.cases).round()}%',
                                       style: TextStyle(
                                           color: Color(0XFF4461C2),
                                           fontSize: 22,
@@ -121,7 +122,7 @@ class PageContinentOverview extends StatelessWidget {
                                   Padding(
                                     padding: const EdgeInsets.only(top: 8.0),
                                     child: Text(
-                                      '27%',
+                                      '${(continent.recovered * 100 / continent.cases).round()}%',
                                       style: TextStyle(
                                           color: Color(0XFF5FD92B),
                                           fontSize: 22,
@@ -143,7 +144,7 @@ class PageContinentOverview extends StatelessWidget {
                                   Padding(
                                     padding: const EdgeInsets.only(top: 8.0),
                                     child: Text(
-                                      '27%',
+                                      '${(continent.deaths * 100 / continent.cases).round()}%',
                                       style: TextStyle(
                                           color: Color(0XFFFF2665),
                                           fontSize: 22,

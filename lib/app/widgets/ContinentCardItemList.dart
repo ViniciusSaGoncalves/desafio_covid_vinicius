@@ -1,12 +1,11 @@
+import 'package:desafio_covid_vinicius/app/models/ContinentDataModel.dart';
 import 'package:desafio_covid_vinicius/app/pages/PageContinentOverview.dart';
 import 'package:desafio_covid_vinicius/app/utils/imgPaths.dart';
 import 'package:flutter/material.dart';
 
 class ContinentCardItemList extends StatelessWidget {
-  final String continent;
-  final int countries;
-  const ContinentCardItemList(
-      {@required this.continent, @required this.countries, Key key})
+  final ContinentDataModel continent;
+  const ContinentCardItemList({@required this.continent, Key key})
       : super(key: key);
 
   @override
@@ -18,16 +17,17 @@ class ContinentCardItemList extends StatelessWidget {
             builder: (BuildContext context) =>
                 PageContinentOverview(continent: continent))),
         child: ListTile(
-          leading: Image(image: AssetImage(ImgPath.getPathImg(continent))),
+          leading:
+              Image(image: AssetImage(ImgPath.getPathImg(continent.continent))),
           title: Text(
-            continent,
+            continent.continent,
             style: TextStyle(
                 fontSize: 13,
                 fontWeight: FontWeight.w400,
                 color: Color(0xFF1E2243)),
           ),
           subtitle: Text(
-            '$countries países',
+            '${continent.countries.length} países',
             style: TextStyle(
                 fontSize: 12,
                 fontWeight: FontWeight.w400,

@@ -52,8 +52,7 @@ class _PageHomeState extends State<PageHome> {
             itemCount: continents.length,
             itemBuilder: (_, index) {
               return ContinentCardItemList(
-                continent: continents[index].continent,
-                countries: continents[index].countries.length,
+                continent: continents[index],
               );
             },
           );
