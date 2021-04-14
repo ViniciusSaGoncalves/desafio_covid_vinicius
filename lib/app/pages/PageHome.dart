@@ -1,5 +1,6 @@
 import 'package:desafio_covid_vinicius/app/models/ContinentDataModel.dart';
 import 'package:desafio_covid_vinicius/app/utils/imgPaths.dart';
+import 'package:desafio_covid_vinicius/app/widgets/continentCardItemList.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 
@@ -12,16 +13,15 @@ class PageHome extends StatefulWidget {
 }
 
 class _PageHomeState extends State<PageHome> {
-  var aux = 'europe';
-  void getHttp() async {
+  List<ContinentDataModel> continents;
+  Future getHttp() async {
     try {
       Response response = await Dio()
           .get('https://disease.sh/v3/covid-19/continents?yesterday=true');
-      final list = (response.data as List)
+      continents = (response.data as List)
           .map((e) => ContinentDataModel.fromJson(e))
           .toList();
-
-      print(list);
+      return continents;
     } catch (e) {
       print(e);
     }
@@ -45,34 +45,19 @@ class _PageHomeState extends State<PageHome> {
         backgroundColor: Color(0xFFFBFBFD),
         centerTitle: true,
       ),
-      body: ListView(
-        children: [
-          Card(
-            margin: EdgeInsets.only(left: 15, right: 15, top: 20),
-            child: ListTile(
-              leading: Image(image: AssetImage(ImgPath.getPathImg('$aux'))),
-              title: Text(
-                'South America',
-                style: TextStyle(
-                    fontSize: 13,
-                    fontWeight: FontWeight.w400,
-                    color: Color(0xFF1E2243)),
-              ),
-              subtitle: Text(
-                '22 países',
-                style: TextStyle(
-                    fontSize: 12,
-                    fontWeight: FontWeight.w400,
-                    color: Color(0xFF969AA8)),
-              ),
-              trailing: Icon(
-                Icons.arrow_forward_ios,
-                color: Color(0xFF969AA8),
-                size: 13,
-              ),
-            ),
-          ),
-        ],
+      body: FutureBuilder(
+        future: getHttp(),
+        builder: (_, snapshot) {
+          return ListView(
+            children: continents.map((ContinentDataModel e) {
+              print(e.continent);
+              return ContinentCardItemList(
+                continent: e.continent,
+                countries: e.countries.length,
+              );
+            }).toList(),
+          );
+        },
       ),
       backgroundColor: Color(0xFFF3F4F9),
     );
