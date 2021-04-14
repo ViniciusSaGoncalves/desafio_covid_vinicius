@@ -1,4 +1,6 @@
+import 'package:desafio_covid_vinicius/app/models/ContinentDataModel.dart';
 import 'package:desafio_covid_vinicius/app/utils/imgPaths.dart';
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 
 class PageHome extends StatefulWidget {
@@ -11,8 +13,23 @@ class PageHome extends StatefulWidget {
 
 class _PageHomeState extends State<PageHome> {
   var aux = 'europe';
+  void getHttp() async {
+    try {
+      Response response = await Dio()
+          .get('https://disease.sh/v3/covid-19/continents?yesterday=true');
+      final list = (response.data as List)
+          .map((e) => ContinentDataModel.fromJson(e))
+          .toList();
+
+      print(list);
+    } catch (e) {
+      print(e);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
+    getHttp();
     return Scaffold(
       appBar: AppBar(
         leading: Image(image: AssetImage(ImgPath.getPathImg('logo'))),
