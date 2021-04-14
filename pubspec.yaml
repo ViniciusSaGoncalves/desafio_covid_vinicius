@@ -60,6 +60,7 @@ flutter:
     - lib/app/assets/img/oceania2x.png
     - lib/app/assets/img/southAmerica.png
     - lib/app/assets/img/southAmerica2x.png
+    - lib/app/assets/img/arrowFw.svg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
@@ -76,7 +77,9 @@ flutter:
     - family: Ubuntu
       fonts:
         - asset: lib/app/assets/fonts/Ubuntu/Ubuntu-Regular.ttf
+          weight: 400
         - asset: lib/app/assets/fonts/Ubuntu/Ubuntu-Medium.ttf
+          weight: 500
         - asset: lib/app/assets/fonts/Ubuntu/Ubuntu-Bold.ttf
           weight: 700
   #       - asset: fonts/Schyler-Italic.ttf

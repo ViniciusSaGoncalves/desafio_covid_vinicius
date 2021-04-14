@@ -27,8 +27,37 @@ class _PageHomeState extends State<PageHome> {
         backgroundColor: Color(0xFFFBFBFD),
         centerTitle: true,
       ),
-      body: Container(
-        child: Text('alo'),
+      body: ListView(
+        children: [
+          Card(
+            margin: EdgeInsets.only(left: 15, right: 15, top: 20),
+            child: ListTile(
+              leading: Image(
+                  image: AssetImage('lib/app/assets/img/southAmerica.png')),
+              title: Text(
+                'South America',
+                style: TextStyle(
+                    fontFamily: 'Ubuntu',
+                    fontSize: 13,
+                    fontWeight: FontWeight.w400,
+                    color: Color(0xFF1E2243)),
+              ),
+              subtitle: Text(
+                '22 países',
+                style: TextStyle(
+                    fontFamily: 'Ubuntu',
+                    fontSize: 12,
+                    fontWeight: FontWeight.w400,
+                    color: Color(0xFF969AA8)),
+              ),
+              trailing: Icon(
+                Icons.arrow_forward_ios,
+                color: Color(0xFF969AA8),
+                size: 13,
+              ),
+            ),
+          ),
+        ],
       ),
       backgroundColor: Color(0xFFF3F4F9),
     );
