@@ -1,3 +1,4 @@
+import 'package:desafio_covid_vinicius/app/utils/imgPaths.dart';
 import 'package:flutter/material.dart';
 
 class PageHome extends StatefulWidget {
@@ -9,17 +10,17 @@ class PageHome extends StatefulWidget {
 }
 
 class _PageHomeState extends State<PageHome> {
+  var aux = 'europe';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: Image(image: AssetImage('lib/app/assets/img/logo.png')),
+        leading: Image(image: AssetImage(ImgPath.getPathImg('logo'))),
         elevation: 0,
         title: Text(
           widget.title,
           style: TextStyle(
             color: Color(0xFF1E2243),
-            fontFamily: 'Ubuntu',
             fontWeight: FontWeight.bold,
             fontSize: 16,
           ),
@@ -32,12 +33,10 @@ class _PageHomeState extends State<PageHome> {
           Card(
             margin: EdgeInsets.only(left: 15, right: 15, top: 20),
             child: ListTile(
-              leading: Image(
-                  image: AssetImage('lib/app/assets/img/southAmerica.png')),
+              leading: Image(image: AssetImage(ImgPath.getPathImg('$aux'))),
               title: Text(
                 'South America',
                 style: TextStyle(
-                    fontFamily: 'Ubuntu',
                     fontSize: 13,
                     fontWeight: FontWeight.w400,
                     color: Color(0xFF1E2243)),
@@ -45,7 +44,6 @@ class _PageHomeState extends State<PageHome> {
               subtitle: Text(
                 '22 países',
                 style: TextStyle(
-                    fontFamily: 'Ubuntu',
                     fontSize: 12,
                     fontWeight: FontWeight.w400,
                     color: Color(0xFF969AA8)),

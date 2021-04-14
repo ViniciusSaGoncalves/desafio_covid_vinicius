@@ -8,9 +8,9 @@ class App extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-      ),
+          primarySwatch: Colors.blue,
+          visualDensity: VisualDensity.adaptivePlatformDensity,
+          fontFamily: 'Ubuntu'),
       home: PageHome(title: 'Covid-19'),
     );
   }
