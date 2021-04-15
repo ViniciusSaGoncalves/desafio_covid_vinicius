@@ -44,9 +44,40 @@ class PageContinentOverview extends StatelessWidget {
         body: TabBarView(
           children: [
             WidgetPageContinentDetails(continent: continent),
-            Column(
-              children: [],
-            )
+            ListView.builder(
+                itemCount: continent.countries.length,
+                itemBuilder: (context, index) {
+                  return Padding(
+                    padding: const EdgeInsets.only(left: 15, right: 15),
+                    child: Card(
+                      child: ListTile(
+                        title: Text(continent.countries[index]),
+                        trailing: Icon(
+                          Icons.arrow_forward_ios,
+                          color: Color(0xFF969AA8),
+                          size: 13,
+                        ),
+                      ),
+                    ),
+                  );
+                })
+            // SingleChildScrollView(
+            //   child: ListView.builder(
+            //     itemCount: 2,
+            //     itemBuilder: (ctx, index) {
+            //       return Card(
+            //         child: ListTile(
+            //           title: Text(continent.countries[index]),
+            //           trailing: Icon(
+            //             Icons.arrow_forward_ios,
+            //             color: Color(0xFF969AA8),
+            //             size: 13,
+            //           ),
+            //         ),
+            //       );
+            //     },
+            //   ),
+            // )
           ],
         ),
         backgroundColor: Color(0xFFF3F4F9),
