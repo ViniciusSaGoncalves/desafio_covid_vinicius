@@ -13,6 +13,7 @@ class App extends StatelessWidget {
           visualDensity: VisualDensity.adaptivePlatformDensity,
           fontFamily: 'Ubuntu'),
       home: PageHome(title: 'Covid-19'),
+      debugShowCheckedModeBanner: false,
       initialRoute: '/',
       routes: {
         '/continent': (context) => PageContinentOverview(),
