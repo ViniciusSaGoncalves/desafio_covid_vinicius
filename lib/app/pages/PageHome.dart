@@ -48,6 +48,10 @@ class _PageHomeState extends State<PageHome> {
       body: FutureBuilder(
         future: getHttp(),
         builder: (_, snapshot) {
+          if (snapshot.connectionState != ConnectionState.done)
+            return Center(
+              child: CircularProgressIndicator(),
+            );
           return ListView.builder(
             itemCount: continents.length,
             itemBuilder: (_, index) {
