@@ -1,6 +1,6 @@
 class CountryDataModel {
   String country;
-  CountryInfo countryInfo;
+  String flag;
   int cases;
   int deaths;
   int recovered;
@@ -10,7 +10,7 @@ class CountryDataModel {
 
   CountryDataModel(
       {this.country,
-      this.countryInfo,
+      this.flag,
       this.cases,
       this.deaths,
       this.recovered,
@@ -20,24 +20,12 @@ class CountryDataModel {
 
   CountryDataModel.fromJson(Map<String, dynamic> json) {
     country = json['country'];
-    countryInfo = json['countryInfo'] != null
-        ? new CountryInfo.fromJson(json['countryInfo'])
-        : null;
+    flag = json['countryInfo']['flag'];
     cases = json['cases'];
     deaths = json['deaths'];
     recovered = json['recovered'];
     active = json['active'];
     population = json['population'];
     continent = json['continent'];
-  }
-}
-
-class CountryInfo {
-  String flag;
-
-  CountryInfo({this.flag});
-
-  CountryInfo.fromJson(Map<String, dynamic> json) {
-    flag = json['flag'];
   }
 }

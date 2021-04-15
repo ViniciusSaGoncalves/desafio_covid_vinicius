@@ -1,9 +1,11 @@
 import 'package:desafio_covid_vinicius/app/models/ContinentDataModel.dart';
+import 'package:desafio_covid_vinicius/app/pages/PageCountryOverview.dart';
 import 'package:desafio_covid_vinicius/app/widgets/continents/widget_page_continent_details.dart';
 import 'package:flutter/material.dart';
 
 class PageContinentOverview extends StatelessWidget {
   final ContinentDataModel continent;
+
   const PageContinentOverview({this.continent, Key key}) : super(key: key);
 
   @override
@@ -46,38 +48,27 @@ class PageContinentOverview extends StatelessWidget {
             WidgetPageContinentDetails(continent: continent),
             ListView.builder(
                 itemCount: continent.countries.length,
-                itemBuilder: (context, index) {
+                itemBuilder: (ctx, index) {
                   return Padding(
                     padding: const EdgeInsets.only(left: 15, right: 15),
-                    child: Card(
-                      child: ListTile(
-                        title: Text(continent.countries[index]),
-                        trailing: Icon(
-                          Icons.arrow_forward_ios,
-                          color: Color(0xFF969AA8),
-                          size: 13,
+                    child: InkWell(
+                      onTap: () => Navigator.of(context).push(MaterialPageRoute(
+                          builder: (BuildContext context) =>
+                              PageCountryOverview(
+                                  countryName: continent.countries[index]))),
+                      child: Card(
+                        child: ListTile(
+                          title: Text(continent.countries[index]),
+                          trailing: Icon(
+                            Icons.arrow_forward_ios,
+                            color: Color(0xFF969AA8),
+                            size: 13,
+                          ),
                         ),
                       ),
                     ),
                   );
                 })
-            // SingleChildScrollView(
-            //   child: ListView.builder(
-            //     itemCount: 2,
-            //     itemBuilder: (ctx, index) {
-            //       return Card(
-            //         child: ListTile(
-            //           title: Text(continent.countries[index]),
-            //           trailing: Icon(
-            //             Icons.arrow_forward_ios,
-            //             color: Color(0xFF969AA8),
-            //             size: 13,
-            //           ),
-            //         ),
-            //       );
-            //     },
-            //   ),
-            // )
           ],
         ),
         backgroundColor: Color(0xFFF3F4F9),
