@@ -28,7 +28,7 @@ class WidgetCardInfoData extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(top: 21),
               child: Text(
-                'Total',
+                label,
                 style: TextStyle(
                   color: Color(0XFF1E2243),
                   fontSize: 18,

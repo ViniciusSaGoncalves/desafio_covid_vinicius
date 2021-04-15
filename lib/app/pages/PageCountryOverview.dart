@@ -56,22 +56,42 @@ class _PageCountryOverviewState extends State<PageCountryOverview> {
               child: CircularProgressIndicator(),
             );
           return Stack(
+            alignment: Alignment.topCenter,
             children: [
-              WidgetCardInfoData(
-                label: snapshot.data['country'],
-                active: snapshot.data['active'],
-                cases: snapshot.data['cases'],
-                deaths: snapshot.data['deaths'],
-                recovered: snapshot.data['recovered'],
-              ),
-              ClipRRect(
-                borderRadius: BorderRadius.circular(15),
-                child: Image.network(
-                  snapshot.data['countryInfo']['flag'],
-                  width: 210,
-                  height: 140,
+              Padding(
+                padding: EdgeInsets.only(top: 80),
+                child: SizedBox(
+                  height: 380,
+                  child: Container(
+                    margin: EdgeInsets.only(left: 15, right: 15),
+                    color: Color(0xFFFFFFFF),
+                    child: Column(
+                      children: [
+                        SizedBox(
+                          height: 70,
+                        ),
+                        WidgetCardInfoData(
+                          label: snapshot.data['country'],
+                          active: snapshot.data['active'],
+                          cases: snapshot.data['cases'],
+                          deaths: snapshot.data['deaths'],
+                          recovered: snapshot.data['recovered'],
+                        ),
+                      ],
+                    ),
+                  ),
                 ),
-              )
+              ),
+              Padding(
+                  padding: EdgeInsets.only(top: 30),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(15),
+                    child: Image.network(
+                      snapshot.data['countryInfo']['flag'],
+                      width: 210,
+                      height: 140,
+                    ),
+                  ))
             ],
           );
         },
