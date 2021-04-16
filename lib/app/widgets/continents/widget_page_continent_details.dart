@@ -26,7 +26,21 @@ class WidgetPageContinentDetails extends StatelessWidget {
             child: Container(
               width: double.infinity,
               margin: EdgeInsets.only(top: 26, left: 15, right: 15),
-              color: Color(0xFFFFFFFF),
+              decoration: BoxDecoration(
+                color: Color(0xFFFFFFFF),
+                shape: BoxShape.rectangle,
+                borderRadius: BorderRadius.all(
+                  Radius.circular(5.0),
+                ),
+                boxShadow: [
+                  BoxShadow(
+                    color: Color(0xFF1100000D),
+                    blurRadius: 6,
+                    spreadRadius: 2,
+                    offset: Offset(0, 3.0), // shadow direction: bottom right
+                  )
+                ],
+              ),
               child: Column(
                 children: [
                   Padding(
@@ -98,7 +112,21 @@ class WidgetPageContinentDetails extends StatelessWidget {
             child: Container(
               width: double.infinity,
               margin: EdgeInsets.only(top: 26, left: 15, right: 15, bottom: 25),
-              color: Color(0xFFFFFFFF),
+              decoration: BoxDecoration(
+                color: Color(0xFFFFFFFF),
+                shape: BoxShape.rectangle,
+                borderRadius: BorderRadius.all(
+                  Radius.circular(5.0),
+                ),
+                boxShadow: [
+                  BoxShadow(
+                    color: Color(0xFF1100000D),
+                    blurRadius: 6,
+                    spreadRadius: 1,
+                    offset: Offset(0, 3.0), // shadow direction: bottom right
+                  )
+                ],
+              ),
               child: Column(
                 children: [
                   Padding(

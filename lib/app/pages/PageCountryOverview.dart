@@ -18,8 +18,6 @@ class _PageCountryOverviewState extends State<PageCountryOverview> {
       Response response = await Dio().get(
           'https://disease.sh/v3/covid-19/countries/${country.toLowerCase()}?strict=true');
 
-      //country = response.data.map((e) => CountryDataModel.fromJson(e));
-
       return response.data;
     } catch (e) {
       print(e);
@@ -30,21 +28,31 @@ class _PageCountryOverviewState extends State<PageCountryOverview> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: new IconButton(
-          icon: new Icon(
-            Icons.arrow_back_ios,
-            color: Color(0xFF1E2243),
-            size: 20,
+        automaticallyImplyLeading: false,
+        titleSpacing: 0,
+        title: InkWell(
+          child: Padding(
+            padding: EdgeInsets.only(left: 25),
+            child: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Icon(
+                  Icons.arrow_back_ios,
+                  color: Color(0xFF1E2243),
+                  size: 18,
+                ),
+                Text(
+                  widget.countryName,
+                  style: TextStyle(
+                    color: Color(0xFF1E2243),
+                    fontWeight: FontWeight.bold,
+                    fontSize: 16,
+                  ),
+                )
+              ],
+            ),
           ),
-          onPressed: () => Navigator.of(context).pop(),
-        ),
-        title: Text(
-          widget.countryName,
-          style: TextStyle(
-            color: Color(0xFF1E2243),
-            fontWeight: FontWeight.bold,
-            fontSize: 16,
-          ),
+          onTap: () => Navigator.of(context).pop(),
         ),
         backgroundColor: Color(0xFFFBFBFD),
       ),
@@ -55,44 +63,34 @@ class _PageCountryOverviewState extends State<PageCountryOverview> {
             return Center(
               child: CircularProgressIndicator(),
             );
-          return Stack(
-            alignment: Alignment.topCenter,
-            children: [
-              Padding(
-                padding: EdgeInsets.only(top: 80),
-                child: SizedBox(
-                  height: 380,
-                  child: Container(
-                    margin: EdgeInsets.only(left: 15, right: 15),
-                    color: Color(0xFFFFFFFF),
-                    child: Column(
-                      children: [
-                        SizedBox(
-                          height: 70,
-                        ),
-                        WidgetCardInfoData(
-                          label: snapshot.data['country'],
-                          active: snapshot.data['active'],
-                          cases: snapshot.data['cases'],
-                          deaths: snapshot.data['deaths'],
-                          recovered: snapshot.data['recovered'],
-                        ),
-                      ],
-                    ),
+          return Container(
+            height: 420,
+            child: Stack(
+              alignment: Alignment.topCenter,
+              children: [
+                Padding(
+                  padding: EdgeInsets.only(top: 80),
+                  child: WidgetCardInfoData(
+                    label: snapshot.data['country'],
+                    active: snapshot.data['active'],
+                    cases: snapshot.data['cases'],
+                    deaths: snapshot.data['deaths'],
+                    recovered: snapshot.data['recovered'],
+                    paddingTop: 80,
                   ),
                 ),
-              ),
-              Padding(
-                  padding: EdgeInsets.only(top: 30),
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(15),
-                    child: Image.network(
-                      snapshot.data['countryInfo']['flag'],
-                      width: 210,
-                      height: 140,
-                    ),
-                  ))
-            ],
+                Padding(
+                    padding: EdgeInsets.only(top: 30),
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(15),
+                      child: Image.network(
+                        snapshot.data['countryInfo']['flag'],
+                        width: 210,
+                        height: 140,
+                      ),
+                    ))
+              ],
+            ),
           );
         },
       ),

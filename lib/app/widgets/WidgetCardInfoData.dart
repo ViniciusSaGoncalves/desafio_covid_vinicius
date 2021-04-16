@@ -1,32 +1,48 @@
 import 'package:flutter/material.dart';
 
 class WidgetCardInfoData extends StatelessWidget {
-  const WidgetCardInfoData({
-    Key key,
-    @required this.cases,
-    @required this.label,
-    @required this.active,
-    @required this.deaths,
-    @required this.recovered,
-  }) : super(key: key);
+  const WidgetCardInfoData(
+      {Key key,
+      @required this.cases,
+      @required this.label,
+      @required this.active,
+      @required this.deaths,
+      @required this.recovered,
+      this.paddingTop = 21})
+      : super(key: key);
 
   final String label;
   final int cases;
   final int active;
   final int deaths;
   final int recovered;
+  final double paddingTop;
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       width: double.infinity,
       child: Container(
-        color: Color(0xFFFFFFFF),
+        decoration: BoxDecoration(
+          color: Color(0xFFFFFFFF),
+          shape: BoxShape.rectangle,
+          borderRadius: BorderRadius.all(
+            Radius.circular(5.0),
+          ),
+          boxShadow: [
+            BoxShadow(
+              color: Color(0xFF1100000D),
+              blurRadius: 6,
+              spreadRadius: 2,
+              offset: Offset(0, 3.0), // shadow direction: bottom right
+            )
+          ],
+        ),
         margin: EdgeInsets.only(left: 15, right: 15, top: 25),
         child: Column(
           children: [
             Padding(
-              padding: const EdgeInsets.only(top: 21),
+              padding: EdgeInsets.only(top: paddingTop),
               child: Text(
                 label,
                 style: TextStyle(

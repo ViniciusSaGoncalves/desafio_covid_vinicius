@@ -14,25 +14,36 @@ class PageContinentOverview extends StatelessWidget {
       length: 2,
       child: Scaffold(
         appBar: AppBar(
-          leading: new IconButton(
-            icon: new Icon(
-              Icons.arrow_back_ios,
-              color: Color(0xFF1E2243),
-              size: 20,
+          automaticallyImplyLeading: false,
+          titleSpacing: 0,
+          title: InkWell(
+            child: Padding(
+              padding: EdgeInsets.only(left: 25),
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Icon(
+                    Icons.arrow_back_ios,
+                    color: Color(0xFF1E2243),
+                    size: 18,
+                  ),
+                  Text(
+                    continent.continent,
+                    style: TextStyle(
+                      color: Color(0xFF1E2243),
+                      fontWeight: FontWeight.bold,
+                      fontSize: 16,
+                    ),
+                  )
+                ],
+              ),
             ),
-            onPressed: () => Navigator.of(context).pop(),
-          ),
-          title: Text(
-            continent.continent,
-            style: TextStyle(
-              color: Color(0xFF1E2243),
-              fontWeight: FontWeight.bold,
-              fontSize: 16,
-            ),
+            onTap: () => Navigator.of(context).pop(),
           ),
           backgroundColor: Color(0xFFFBFBFD),
           bottom: TabBar(
             labelColor: Color(0xFF4461C2),
+            unselectedLabelColor: Color(0xFF969AA8),
             tabs: [
               Tab(
                 text: 'Detalhes',
