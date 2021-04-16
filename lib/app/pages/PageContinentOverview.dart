@@ -1,6 +1,6 @@
 import 'package:desafio_covid_vinicius/app/models/ContinentDataModel.dart';
 import 'package:desafio_covid_vinicius/app/pages/PageCountryOverview.dart';
-import 'package:desafio_covid_vinicius/app/widgets/continents/widget_page_continent_details.dart';
+import 'package:desafio_covid_vinicius/app/widgets/continents/WidgetPageContinentDetails.dart';
 import 'package:flutter/material.dart';
 
 class PageContinentOverview extends StatelessWidget {
